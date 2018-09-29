@@ -9,16 +9,19 @@ class TodoList extends Component {
     this.props.onChecked(newTodo);
   };
   render() {
-    let todos = this.props.todoList.map(todo => {
-      return (
-        <TodoItem
-          key={todo.id}
-          todo={todo}
-          onDelete={this.handleDelete}
-          onChecked={this.handleCheck}
-        />
-      );
-    });
+    let todos = {};
+    if (this.props.todoList) {
+      todos = this.props.todoList.map(todo => {
+        return (
+          <TodoItem
+            key={todo.id}
+            todo={todo}
+            onDelete={this.handleDelete}
+            onChecked={this.handleCheck}
+          />
+        );
+      });
+    }
     return <div className="todos-list">{todos}</div>;
   }
 }

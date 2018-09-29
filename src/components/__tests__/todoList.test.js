@@ -10,11 +10,13 @@ describe("TodoList component", () => {
   let wrapper;
   beforeEach(() => {
     console.log("todoObj " + todoObj);
+    //wrapper = shallow(<TodoList />);
     wrapper = shallow(<TodoList todoList={todoObj} />);
   });
   it("renders without crashing--smoke testing", () => {
     //expect(wrapper).toBe.true;
-    expect(() => shallow(<TodoList todoList={todoObj} />)).not.toThrow();
+    // expect(() => shallow(<TodoList todoList={todoObj} />)).not.toThrow();
+    expect(() => shallow(<TodoList />)).not.toThrow();
   });
   it("should be a div and a TodoItem", () => {
     expect(wrapper.find("div").length).toEqual(1);
